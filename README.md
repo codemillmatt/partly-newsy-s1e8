@@ -1,6 +1,6 @@
 Welcome back to Partly Cloudy! The show where you learn how to build a cloud-connected Xamarin mobile application. We start from nothing and don't quit until it's ready for the App Store!
 
-So go [download all the code for this episode on GitHub](https://aka.ms/partly-cloudy-s1e7-github)! (And if you haven't, [sign up for a free Azure account](https://azure.microsoft.com/en-us/free/?WT.mc_id=partlycloudy-github-masoucou), you'll need it to follow along.)
+So go [download all the code for this episode on GitHub](https://aka.ms/partly-cloudy-s1e7-github)! (And if you haven't, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=mobile-0000-masoucou), you'll need it to follow along.)
 
 ![Title Image](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_750/v1579107007/thumbnail_25731_sf6f5o.jpg)
 
@@ -32,7 +32,7 @@ The app is the exact same as it was from the last episode. No code changes at al
 
 ## Azure BLOB Storage and CDN
 
-[Azure BLOB Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction?WT.mc_id=partlycloudy-github-masoucou) is a great way to store any static - or nonchanging - content for your app that you don't want to include as part of your app bundle. This could include images, videos, etc.
+[Azure BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction?WT.mc_id=mobile-0000-masoucou) is a great way to store any static - or nonchanging - content for your app that you don't want to include as part of your app bundle. This could include images, videos, etc.
 
 BLOB Storage is cheap, redundant - meaning it's backed up so you don't have to worry about losing any data, and it's fast to get data out of.
 
@@ -42,9 +42,9 @@ In the app, I'm using BLOB storage to host all the images found on the Favorites
 
 But because an Azure Storage account is created in a specific region, and the user's of our app may be far away from that region, it would be nice to have all of those images available to them as quickly as possible.
 
-And that's where a [Content Delivery Network, or CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview?WT.mc_id=partlycloudy-github-masoucou) comes in.
+And that's where a [Content Delivery Network, or CDN](https://docs.microsoft.com/azure/cdn/cdn-overview?WT.mc_id=mobile-0000-masoucou) comes in.
 
-An [Azure CDN can sit on top of an Azure BLOB Storage account](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn?WT.mc_id=partlycloudy-github-masoucou) and cache all of the BLOBs within it. The caching then makes, in our case, the images available "at the edge". The edge means that they're ready to be served up from various Azure data centers far away from the originating one that has the storage account in it.
+An [Azure CDN can sit on top of an Azure BLOB Storage account](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn?WT.mc_id=mobile-0000-masoucou) and cache all of the BLOBs within it. The caching then makes, in our case, the images available "at the edge". The edge means that they're ready to be served up from various Azure data centers far away from the originating one that has the storage account in it.
 
 You can configure a CDN to obey all sorts of different caching rules and standards - like Akamai, Verizon, or Microsoft. All that info and more can be found in the docs.
 
@@ -60,9 +60,9 @@ A fully qualified URL then is: `https://partlynewsycdn.azureedge.net/thumbnails/
 
 ### Learn more!
 
-And of course, there's a great [Microsoft Learn module](https://docs.microsoft.com/en-us/learn/modules/create-cdn-static-resources-blob-storage/?WT.mc_id=partlycloudy-github-masoucou) that covers the ins and outs of having a BLOB Storage account backed by a CDN too! Definitely worth checking out!
+And of course, there's a great [Microsoft Learn module](https://docs.microsoft.com/learn/modules/create-cdn-static-resources-blob-storage/?WT.mc_id=mobile-0000-masoucou) that covers the ins and outs of having a BLOB Storage account backed by a CDN too! Definitely worth checking out!
 
-And if you want to dig deep on everything Azure has for data storage - there's a [Learn module](https://docs.microsoft.com/learn/paths/store-data-in-azure/?WT.mc_id=partlycloudy-github-masoucou) for that too!
+And if you want to dig deep on everything Azure has for data storage - there's a [Learn module](https://docs.microsoft.com/learn/paths/store-data-in-azure/?WT.mc_id=mobile-0000-masoucou) for that too!
 
 ## Azure Cosmos DB Multi-Read and Write
 
@@ -70,7 +70,7 @@ The images are downloading nice and fast! Next up is to get all the data to be s
 
 We can do that by enabling multi-read and write regions in Azure Cosmos DB.
 
-You can [read more about what global distribution](https://docs.microsoft.com/en-us/azure/cosmos-db/distribute-data-globally?WT.mc_id=partlycloudy-github-masoucou) means to Cosmos DB here.
+You can [read more about what global distribution](https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally?WT.mc_id=mobile-0000-masoucou) means to Cosmos DB here.
 
 But enabling it is pretty simple.
 
@@ -88,7 +88,7 @@ In other words - imagine you have an Azure Function that reads from a Cosmos DB 
 
 If the Function is created in the WestUS region, it doesn't do you any good if you have a read region of Cosmos setup in Europe - because the first request to the Function always has to travel to WestUS in order to initiate anything.
 
-That's where [Azure Front Door comes in](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview?WT.mc_id=partlycloudy-github-masoucou).
+That's where [Azure Front Door comes in](https://docs.microsoft.com/azure/frontdoor/front-door-overview?WT.mc_id=mobile-0000-masoucou).
 
 Front Door allows you to setup routing rules to various backend pools, so requests can be routed to the one that will respond the quickest.
 
